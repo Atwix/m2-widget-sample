@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<widgets xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Widget:etc/widget.xsd">
+    <widget id="atwix_contact" class="\Atwix\Widget\Block\Widget\ContactWidget">
+        <label translate="true">Contact Details</label>
+        <description translate="true">Widget with editable contact details</description>
+        <parameters>
+            <parameter name="fullname" xsi:type="text" visible="true" sort_order="10">
+                <label translate="true">Full Name</label>
+            </parameter>
+            <parameter name="gender" xsi:type="select" required="true" visible="true"  sort_order="20">
+                <label translate="true">Gender</label>
+                <options>
+                    <option name="male" value="male" selected="true">
+                        <label translate="true">Male</label>
+                    </option>
+                    <option name="female" value="female">
+                        <label translate="true">Female</label>
+                    </option>
+                </options>
+            </parameter>
+            <parameter name="phone" xsi:type="text" visible="true" sort_order="30">
+                <label translate="true">Phone Number</label>
+            </parameter>
+            <parameter name="email" xsi:type="text" visible="true" sort_order="40">
+                <label translate="true">Email</label>
+            </parameter>
+            <parameter name="image" xsi:type="block" required="true" visible="true" sort_order="10">
+                <label translate="true">Photo</label>
+                <description translate="true">Contact photo</description>
+
+                <block class="Atwix\Widget\Block\Adminhtml\Widget\ImageChooser">
+                    <data>
+                        <item name="button" xsi:type="array">
+                            <item name="open" xsi:type="string">Choose Image...</item>
+                        </item>
+                    </data>
+                </block>
+            </parameter>
+            <parameter name="template" xsi:type="select" required="true" visible="false">
+                <label translate="true">Template</label>
+                <options>
+                    <option name="default" value="contact.phtml" selected="true">
+                        <label translate="true">New Products Grid Template</label>
+                    </option>
+                </options>
+            </parameter>
+        </parameters>
+    </widget>
+</widgets>
